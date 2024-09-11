@@ -1,4 +1,4 @@
-package com.wj.updatecenter.sharedhelperlibrary;
+package com.wj.updatecenter.shared;
 
 public abstract class LoggerHelper {
     public static String RECEIVED_REQUEST_LOG_MESSAGE_TEMPLATE =

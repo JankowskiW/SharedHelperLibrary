@@ -1,4 +1,4 @@
-package com.wj.updatecenter.sharedhelperlibrary;
+package com.wj.updatecenter.shared;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

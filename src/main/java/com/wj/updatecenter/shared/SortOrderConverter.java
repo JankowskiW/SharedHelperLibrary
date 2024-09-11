@@ -1,4 +1,4 @@
-package com.wj.updatecenter.sharedhelperlibrary;
+package com.wj.updatecenter.shared;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.util.StringUtils;
