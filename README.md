@@ -63,3 +63,6 @@ Work in progress...
 ### Version 1.0.2
 - Created RequestParametersExtractor:
   - utility for extracting and preparing a specified set of parameters for requests
+
+### Version 1.0.3
+- Changed RequestParametersExtractor method return Map value type from String to Object

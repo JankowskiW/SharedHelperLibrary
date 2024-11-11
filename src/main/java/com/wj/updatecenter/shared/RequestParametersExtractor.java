@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 public class RequestParametersExtractor {
 
-    public static Map<String, String> extractWantedParameters(
-            Map<String, String> requestParameters,
+    public static Map<String, Object> extractWantedParameters(
+            Map<String, Object> requestParameters,
             Collection<String> wantedParameterNames) {
         if (requestParameters == null || requestParameters.isEmpty()) return new HashMap<>();
         if (wantedParameterNames == null || wantedParameterNames.isEmpty()) return requestParameters;
@@ -17,8 +17,8 @@ public class RequestParametersExtractor {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
-    public static Map<String, String> removeUnwantedParameters(
-            Map<String, String> requestParameters,
+    public static Map<String, Object> removeUnwantedParameters(
+            Map<String, Object> requestParameters,
             Collection<String> unwantedParameterNames) {
         if (requestParameters == null || requestParameters.isEmpty()) return new HashMap<>();
         if (unwantedParameterNames == null || unwantedParameterNames.isEmpty()) return requestParameters;
