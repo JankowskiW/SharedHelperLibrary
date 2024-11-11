@@ -59,3 +59,7 @@ Work in progress...
 ### Version 1.0.1
 - Changed CommonSpecificationBuilder:
   - added additional methods to handle more complex `Specification` cases
+
+### Version 1.0.2
+- Created RequestParametersExtractor:
+  - utility for extracting and preparing a specified set of parameters for requests
