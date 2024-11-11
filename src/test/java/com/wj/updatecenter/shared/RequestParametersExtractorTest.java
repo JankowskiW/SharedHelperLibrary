@@ -15,7 +15,7 @@ class RequestParametersExtractorTest {
 
     private Set<String> wantedParameterNames;
     private Set<String> unwantedParameterNames;
-    private Map<String, Object> requestParameters;
+    private Map<String, String> requestParameters;
 
     @BeforeEach
     void setUp() {
@@ -37,7 +37,7 @@ class RequestParametersExtractorTest {
     @Test
     void shouldReturnOnlyWantedParametersWhenAnyExistsInWantedParameterNamesCollection() {
         // given && when
-        Map<String, Object> result = RequestParametersExtractor
+        Map<String, String> result = RequestParametersExtractor
                 .extractWantedParameters(requestParameters, wantedParameterNames);
 
         // then
@@ -45,14 +45,14 @@ class RequestParametersExtractorTest {
                 () -> assertThat(result.keySet())
                         .containsAll(wantedParameterNames),
                 () -> assertThat(result.values())
-                        .allMatch(value -> ((String) value).startsWith("wantedValue"))
+                        .allMatch(value -> value.startsWith("wantedValue"))
         );
     }
 
     @Test
     void shouldReturnUnchangedMapWhenWantedParameterNamesCollectionIsNull() {
         // given && when
-        Map<String, Object> result = RequestParametersExtractor
+        Map<String, String> result = RequestParametersExtractor
                 .extractWantedParameters(requestParameters, null);
 
         // then
@@ -64,7 +64,7 @@ class RequestParametersExtractorTest {
     @Test
     void shouldReturnUnchangedMapWhenWantedParameterNamesCollectionIsEmpty() {
         // given && when
-        Map<String, Object> result = RequestParametersExtractor
+        Map<String, String> result = RequestParametersExtractor
                 .extractWantedParameters(requestParameters, new HashSet<>());
 
         // then
@@ -76,7 +76,7 @@ class RequestParametersExtractorTest {
     @Test
     void shouldReturnEmptyMapOfWantedParametersWhenGivenRequestParametersMapIsEmpty() {
         // given && when
-        Map<String, Object> result = RequestParametersExtractor
+        Map<String, String> result = RequestParametersExtractor
                 .extractWantedParameters(new HashMap<>(), wantedParameterNames);
 
         // then
@@ -87,7 +87,7 @@ class RequestParametersExtractorTest {
     @Test
     void shouldReturnEmptyMapOfWantedParametersWhenGivenRequestParametersMapIsNull() {
         // given && when
-        Map<String, Object> result = RequestParametersExtractor
+        Map<String, String> result = RequestParametersExtractor
                 .extractWantedParameters(null, wantedParameterNames);
 
         // then
@@ -98,7 +98,7 @@ class RequestParametersExtractorTest {
     @Test
     void shouldReturnOnlyParametersThatAreNotInUnwantedParameterNamesCollection() {
         // given && when
-        Map<String, Object> result = RequestParametersExtractor
+        Map<String, String> result = RequestParametersExtractor
                 .removeUnwantedParameters(requestParameters, unwantedParameterNames);
 
         // then
@@ -106,12 +106,12 @@ class RequestParametersExtractorTest {
                 () -> assertThat(result.keySet())
                         .containsAll(wantedParameterNames),
                 () -> assertThat(result.values())
-                        .allMatch(value -> ((String) value).startsWith("wantedValue"))
+                        .allMatch(value -> value.startsWith("wantedValue"))
         );
     }   @Test
     void shouldReturnUnchangedMapWhenUnwantedParameterNamesCollectionIsNull() {
         // given && when
-        Map<String, Object> result = RequestParametersExtractor
+        Map<String, String> result = RequestParametersExtractor
                 .removeUnwantedParameters(requestParameters, null);
 
         // then
@@ -123,7 +123,7 @@ class RequestParametersExtractorTest {
     @Test
     void shouldReturnUnchangedMapWhenUnwantedParameterNamesCollectionIsEmpty() {
         // given && when
-        Map<String, Object> result = RequestParametersExtractor
+        Map<String, String> result = RequestParametersExtractor
                 .removeUnwantedParameters(requestParameters, new HashSet<>());
 
         // then
@@ -135,7 +135,7 @@ class RequestParametersExtractorTest {
     @Test
     void shouldReturnEmptyMapOfParametersWithoutUnwantedOnesWhenGivenRequestParametersMapIsEmpty() {
         // given && when
-        Map<String, Object> result = RequestParametersExtractor
+        Map<String, String> result = RequestParametersExtractor
                 .removeUnwantedParameters(new HashMap<>(), wantedParameterNames);
 
         // then
@@ -146,7 +146,7 @@ class RequestParametersExtractorTest {
     @Test
     void shouldReturnEmptyMapOfParametersWithoutUnwantedOnesWhenGivenRequestParametersMapIsNull() {
         // given && when
-        Map<String, Object> result = RequestParametersExtractor
+        Map<String, String> result = RequestParametersExtractor
                 .removeUnwantedParameters(null, wantedParameterNames);
 
         // then
